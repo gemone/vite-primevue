@@ -1,15 +1,9 @@
-import {
-  createRouter,
-  createWebHashHistory,
-  createWebHistory,
-} from "vue-router";
+import { createRouter, createWebHashHistory, createWebHistory } from 'vue-router';
 
-import routes from "./routes";
+import routes from './routes';
 
 const createHistory =
-  import.meta.env.VITE_ROUTER_HISTORY_MODE === "history"
-    ? createWebHistory
-    : createWebHashHistory;
+  import.meta.env.VITE_ROUTER_HISTORY_MODE === 'history' ? createWebHistory : createWebHashHistory;
 
 export default createRouter({
   scrollBehavior: () => ({
@@ -17,7 +11,5 @@ export default createRouter({
     right: 0,
   }),
   routes,
-  history: createHistory(
-    import.meta.env.SSR ? void 0 : import.meta.env.VITE_ROUTER_BASE
-  ),
+  history: createHistory(import.meta.env.SSR ? void 0 : import.meta.env.VITE_ROUTER_BASE),
 });

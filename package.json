@@ -17,6 +17,7 @@
   "devDependencies": {
     "@vitejs/plugin-vue": "^1.6.0",
     "@vue/compiler-sfc": "^3.2.6",
+    "prettier": "^2.3.2",
     "unplugin-vue-components": "^0.14.11",
     "vite": "^2.5.2"
   }
