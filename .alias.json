@@ -1,0 +1,11 @@
+{
+  "root": "./",
+  "src": "./src",
+  "assets": "./src/assets",
+  "components": "./src/components",
+  "layouts": "./src/layouts",
+  "pages": "./src/pages",
+  "plugins": "./src/plugins",
+  "routers": "./src/routers",
+  "api": "./src/api"
+}

@@ -3,7 +3,8 @@ import components from './primevue.components.json';
 /**
  * PrimeVue Resolver， Fix unplugin vue components
  *
- * @param {import("unplugin-vue-components/resolvers").PrimeVueResolverOptions} { importStyle = true, importIcons = true, importTheme = 'saga-blue' }
+ * @param {import("unplugin-vue-components/resolvers").PrimeVueResolverOptions}
+ * { importStyle = true, importIcons = true, importTheme = 'saga-blue' }
  * @return {import("unplugin-vue-components/dist/types").ComponentResolver}
  */
 export function PrimeVueResolverLocal(
@@ -13,6 +14,7 @@ export function PrimeVueResolverLocal(
     importTheme: 'saga-blue',
   },
 ) {
+  // eslint-disable-next-line consistent-return
   return (name) => {
     const sideEffects = [];
 

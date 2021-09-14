@@ -1,7 +1,7 @@
 <script setup>
 // components
 import logoImg from 'assets/logo.png';
-import HelloWorld from '../components/HelloWorld.vue';
+import HelloWorld from 'components/HelloWorld.vue';
 // assets
 </script>
 

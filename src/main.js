@@ -8,5 +8,9 @@ import App from './App.vue';
 // css
 import 'primeflex/primeflex.css';
 
-createApp(App).use(routers).use(PrimeVue).use(http)
-  .mount('#app');
+const app = createApp(App);
+
+app.use(routers);
+app.use(PrimeVue);
+app.use(http);
+app.mount('#app');

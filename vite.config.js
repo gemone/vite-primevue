@@ -1,14 +1,23 @@
 import { resolve } from 'path';
+import { forIn } from 'lodash';
 
 import { defineConfig } from 'vite';
 
 // plugin
 import vue from '@vitejs/plugin-vue';
+import eslint from '@rollup/plugin-eslint';
 import Components from 'unplugin-vue-components/vite';
 
 // primevue
 import { PrimeVueConfig } from './primevue.config';
 import { PrimeVueResolverLocal } from './primevue.resolver';
+
+// alias
+import PathAlias from './.alias.json';
+const alias = { ...PathAlias };
+forIn(PathAlias, (rPath, name) => {
+  alias[name] = resolve(rPath);
+});
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -19,17 +28,13 @@ export default defineConfig({
     Components({
       resolvers: [PrimeVueResolverLocal(PrimeVueConfig)],
     }),
+    {
+      ...eslint(),
+      enforce: 'pre',
+      apply: 'build',
+    },
   ],
   resolve: {
-    alias: {
-      root: resolve(__dirname),
-      src: resolve(__dirname, 'src'),
-      assets: resolve(__dirname, 'src/assets'),
-      components: resolve(__dirname, 'src/components'),
-      layouts: resolve(__dirname, 'src/layouts'),
-      pages: resolve(__dirname, 'src/pages'),
-      plugins: resolve(__dirname, 'src/plugins'),
-      routers: resolve(__dirname, 'src/routers'),
-    },
+    alias,
   },
 });
